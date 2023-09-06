@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": "./",
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.svg",
+      "src/**/*.png",
+      "src/**/*.d.ts",
+      "src/declaration.d.ts"
+    ],
+    "extends": "expo/tsconfig.base"
+  },
+  "extends": "expo/tsconfig.base"
+}
