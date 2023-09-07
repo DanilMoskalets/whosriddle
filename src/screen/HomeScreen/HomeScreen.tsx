@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
-import {Image, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LinearGradient} from "expo-linear-gradient";
 import {vw} from "../../shared/hook/vw";
 import {Poppins_400Regular, Poppins_500Medium, Poppins_800ExtraBold, useFonts} from "@expo-google-fonts/poppins";
+import SvgComponenNike from "../../assets/icons/SvgComponenNike";
+import SvgComponenLego from "../../assets/icons/SvgComponenLego";
+import SvgComponenMac from "../../assets/icons/SvgComponenMac";
 
 export type RootStackParamList = {
     Home: undefined;
@@ -82,12 +85,20 @@ export const HomeScreen = ({navigation}: Props) => {
                         style={[
                             styles.shadowProp,
                             styles.card,
-                            {marginBottom: vw(20)}
+                            {
+                                marginBottom: vw(20),
+                                paddingTop: vw(22)
+                            }
                         ]}>
                         <Pressable onPress={() => navigation.navigate('CardDetails')}>
-                            <Text style={styles.customTextHeader}>Special Brand{'\n'}Riddles</Text>
+                            <Text style={[styles.customTextHeaderTwo]}>Special Brand{'\n'}Riddles</Text>
 
                             <Text style={styles.customText}>Riddles related with{'\n'}popular brands{'\n'}such as</Text>
+                            <View style={styles.brands}>
+                               <SvgComponenNike/>
+                               <SvgComponenMac/>
+                               <SvgComponenLego/>
+                            </View>
                             <Image style={styles.ImageFour}
                                    source={require('../../assets/image/ImageFour.png')}/>
                         </Pressable>
@@ -103,6 +114,7 @@ const styles = StyleSheet.create({
         paddingTop: vw(120),
         paddingHorizontal: vw(35),
         flex: 1,
+        minHeight: Dimensions.get('window').height
     },
     content: {
         position: 'absolute',
@@ -162,7 +174,29 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         lineHeight: 30,
         letterSpacing: -0.24,
-        textAlign: 'left'
+        textAlign: 'left',
+        marginBottom: vw(25)
+    },
+    customTextHeaderTwo: {
+        color: '#3D444F',
+        fontFamily: 'PoppinsExtraBold',
+        fontSize: vw(16),
+        fontStyle: 'normal',
+        fontWeight: '800',
+         lineHeight: 22,
+        letterSpacing: -0.16,
+        textAlign: 'left',
+        marginBottom: vw(12)
+    },
+    brands: {
+        marginTop: vw(18),
+        display: "flex",
+        flexDirection: 'row',
+        gap: vw(8)
+    },
+    brandsIcon: {
+        width: vw(24),
+        height: vw(24),
     },
     customText: {
         color: '#5F6F89',
@@ -178,7 +212,7 @@ const styles = StyleSheet.create({
     smallCardTextHeader: {
         color: '#3D444F',
         fontFamily: 'PoppinsExtraBold',
-        fontSize: 14,
+        fontSize: vw(14),
         fontStyle: 'normal',
         fontWeight: '800',
         lineHeight: 20,
@@ -188,7 +222,7 @@ const styles = StyleSheet.create({
         marginTop: vw(14),
         color: '#5F6F89',
         fontFamily: 'PoppinsMedium',
-        fontSize: 12,
+        fontSize: vw(12),
         fontStyle: 'normal',
         fontWeight: '500',
         lineHeight: 18,
@@ -196,35 +230,36 @@ const styles = StyleSheet.create({
         opacity: 0.66,
     },
     imageOne: {
-        width: vw(220),
-        height: vw(169),
+        width: 320,
+        height: 169,
         position: "absolute",
-        zIndex: 10,
-        top: vw(-56),
-        right: vw(-1),
+        zIndex: 999,
+        top: vw(-39),
+        right: vw(-24),
     },
     ImageTwo: {
-        width: vw(155),
-        height: vw(184),
+        width: 155,
+        height: 184,
         position: "absolute",
-        zIndex: 10,
+        zIndex: 999,
         top: vw(-76),
         right: vw(-17),
     },
     ImageThree: {
-        width: vw(155),
-        height: vw(184),
+        width: 155,
+        height: 184,
         position: "absolute",
-        zIndex: 10,
+        zIndex: 999,
         top: vw(-77),
         right: vw(-17),
     },
     ImageFour: {
-        width: vw(357),
-        height: vw(225.854),
+        width: 357,
+        height: 225.854,
         position: "absolute",
-        zIndex: 10,
-        top: vw(-46),
+        zIndex: 999,
+        top: vw(-28),
         right: vw(-50),
+
     }
 });

@@ -46,24 +46,36 @@ const MyCustomHeader = () => (
 const homeScreenOptions = {
     title: '',
     tabBarLabel: 'Home',
-    // headerRight: () => (
-    //     <View style={styles.headerRight}>
-    //         <Text>Сообщения: 3</Text>
-    //     </View>
-    // ),
-    // headerLeft: () => (
-    //     <View>
-    //         <Text>Рейтинг: 5.0</Text>
-    //     </View>
-    // ),
-    header: () => (<MyCustomHeader/>),
-    // headerStyle: {
-    //     backgroundColor: '#F0F2FF',
-    //     elevation: 0,
-    //     shadowOpacity: 0,
-    //     borderWidth: 0,
-    //     padding: 40
-    // },
+    headerRight: () => (
+        <View style={styles.headerLeft}>
+            <View style={styles.notification}>
+                <SvgComponenBall/>
+                <LinearGradient colors={['#E75AC8', '#FF708A']} style={[styles.rate]}>
+                    <Text style={styles.rate_text}>2</Text>
+                </LinearGradient>
+            </View>
+            <View style={styles.notification}>
+                <SvgComponenBulb/>
+                <LinearGradient colors={['#7DCB44', '#6DBC33']} style={[styles.rate]}>
+                    <Text style={styles.rate_text}>2</Text>
+                </LinearGradient>
+            </View>
+        </View>
+    ),
+    headerLeft: () => (
+        <LinearGradient colors={['#F8B469', '#FF876D']}
+                        start={[0, 0]}
+                        end={[1, 1]} style={styles.container}>
+            <SvgComponentsShape/>
+            <Text style={styles.text}>
+                954
+            </Text>
+        </LinearGradient>
+    ),
+    // header: () => (<MyCustomHeader/>),
+    headerStyle: {
+        // marginHorizontal: vw(35)
+    },
     tabBarStyle: {
         borderTopWidth: 0,
         elevation: 0,
@@ -105,7 +117,9 @@ const styles = StyleSheet.create({
     headerLeft: {
         display: 'flex',
         flexDirection: 'row',
-        gap: vw(20)
+        gap: vw(20),
+        marginRight: vw(35),
+        marginTop: vw(42)
     },
     text: {
         fontSize: vw(14),
@@ -116,6 +130,8 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: vw(16),
         paddingVertical: vw(12),
+        marginHorizontal: vw(35),
+        marginTop: vw(42),
         justifyContent: 'center',
         gap: vw(10),
         flexDirection: 'row',
